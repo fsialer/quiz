@@ -1,5 +1,5 @@
 node_modules
 .DS_Store
-npm-debug.log
+NPM-debug.log
 quiz.sqlite
 .env
