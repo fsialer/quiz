@@ -23,6 +23,14 @@
         <span><a href="/author">Créditos</a></span>
        </nav>
       <section class="main" id="s1">
+       <%if(errors.length){%>
+       <span id='ErrorMsgs'>
+        Correguir errores:<br/>
+        <%for(var i in errors){%>
+        <span><%=errors[i].message%></span>
+        <%}%>
+       </span>
+       <%}%>
         <div>
            <%- body%>
         </div>
