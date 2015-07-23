@@ -1,7 +1,23 @@
-
+<label for='tem'>Tema</label>
+<select for='tem' name="quiz[tema]">
+	<%var tema=['Otro','Humanidades','Ocio','Ciencia','Tecnología'];%>
+	<%for(var i=0;i<tema.length;i++){%>
+	<%if(quiz.tema===tema[i]){%>
+	<option value="<%=tema[i]%>" selected><%=tema[i]%></option>
+	<%}else{%>
+	<option value="<%=tema[i]%>"><%=tema[i]%></option>
+	<%}%>
+	<%}%>
+</select><p>
+<%var pregunta='';%>
+<%var respuesta='';%>
+<% if(quiz.pregunta!=='Pregunta' && quiz.respuesta!=='Respuesta'){%>
+	<%pregunta=quiz.pregunta;%>
+<%respuesta=quiz.respuesta;%>
+<%}%>
 <label for="preg" class="rem">Pregunta:</label>
-<input type="text" id="preg" name="quiz[pregunta]" value="<%=quiz.pregunta %>"/><p>
+<input type="text" id="preg" name="quiz[pregunta]" value="<%=pregunta%>" placeholder="pregunta"/><p>
 <label for="resp" class="rem">Respuesta:</label>
-<input type="text" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta %>"/><p>
+<input type="text" id="resp" name="quiz[respuesta]" value="<%=respuesta %>" placeholder="respuesta"/><p>
 <a href="/quizes"><button type="button">Cancelar</button></a>
 <input type="submit" value="Salvar"/>
