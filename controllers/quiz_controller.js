@@ -46,19 +46,19 @@ exports.author=function(req,res){
 //GET /quizes/new
 exports.new=function(req,res){
 	var quiz=models.Quiz.build(//crea objeto quiz
-		{tema:'Tema',pregunta:'Pregunta',respuesta:'Respuesta'}
+		{pregunta:'Pregunta',respuesta:'Respuesta',tema:'Tema'}
 		);
 	res.render('quizes/new',{quiz:quiz,errors:[]});
 };
 //POST /quizes/create
 exports.create=function(req,res){
 	var quiz = models.Quiz.build( req.body.quiz );
-	quiz.validate().success(function(err){
+	quiz.validate().then(function(err){
 		if (err) {
 			res.render('quizes/new',{quiz:quiz,errors:err.errors});
 		}else{
 			  quiz // save: guarda en DB campos pregunta y respuesta de quiz
-        .save({fields: ["tema","pregunta", "respuesta"]})
+        .save({fields: ["pregunta", "respuesta","tema"]})
         .then( function(){ res.redirect('/quizes')}) 
             // res.redirect: Redirección HTTP a lista de preguntas
 		}
@@ -80,7 +80,7 @@ exports.update=function(req,res){
 			res.render('quizes/edit',{quiz:req.quiz,errors:err.errors});
 		}else{
 		req.quiz // save: guarda en DB campos pregunta y respuesta de quiz
-        .save({fields: ["tema","pregunta", "respuesta"]})
+        .save({fields: ["pregunta", "respuesta","tema"]})
         .then( function(){ res.redirect('/quizes');}) 
             // res.redirect: Redirección HTTP a lista de preguntas
 
