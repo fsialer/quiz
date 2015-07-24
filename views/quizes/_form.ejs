@@ -1,11 +1,11 @@
 <label for='tem'>Tema</label>
 <select for='tem' name="quiz[tema]">
-	<%var tema=['Otro','Humanidades','Ocio','Ciencia','Tecnología'];%>
-	<%for(var i=0;i<tema.length;i++){%>
-	<%if(quiz.tema===tema[i]){%>
-	<option value="<%=tema[i]%>" selected><%=tema[i]%></option>
+	<%var temas=['Otro','Humanidades','Ocio','Ciencia','Tecnología'];%>
+	<%for(var i=0;i<temas.length;i++){%>
+	<%if(quiz.tema===temas[i]){%>
+	<option value="<%=temas[i]%>" selected><%=temas[i]%></option>
 	<%}else{%>
-	<option value="<%=tema[i]%>"><%=tema[i]%></option>
+	<option value="<%=temas[i]%>"><%=temas[i]%></option>
 	<%}%>
 	<%}%>
 </select><p>
