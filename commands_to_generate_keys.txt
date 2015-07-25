@@ -1,0 +1,5 @@
+mkdir certs
+cd certs
+openssl genrsa -out quiz-fsialer-key.pem 2048
+openssl req -new -sha256 -key quiz-fsialer-key.pem -out quiz-fsialer-csr.pem
+openssl x509 -req -in quiz-fsialer-csr.pem -signkey quiz-fsialer-key.pem -out quiz-fsialer-cert.pem
