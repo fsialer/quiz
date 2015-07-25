@@ -23,7 +23,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser('quiz-fsialer'));
-app.use(session());
+app.use(session({cookie:{maxAge:120000}}));
+
 app.use(partials());
 app.use(cookieParser());
 
