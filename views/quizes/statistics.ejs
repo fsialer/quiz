@@ -1,0 +1,12 @@
+<h4>Bienvenido al Proyecto </h3>
+    <p> Estadisticas </p> <br>
+    <p> Total Preguntas: <%= statistics.quizes %></p>
+    <p> Total Comentarios:  <%= statistics.comments %> </p> <br>
+    
+    <p> Total Preguntas Sin Comentarios:<%= statistics.quizes - statistics.commentedQuizes %>
+    <p> Total Pregunta con comentarios:  <%= statistics.commentedQuizes %>
+     </p> <br>
+    <p> Comentarios sin publicar: <%= statistics.commentsUnpublished %>
+      (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments).toFixed(2)+'%':'100%' %>)
+     
+    </p> <br>
